@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="btn">BTN</button>
+    <label for="">价格：4599:00</label>
+    <script>
+      function animation(duration, from, to, onProgress) {
+        let value = from;
+        const speed = (to - from) / duration;
+        const startTime = Date.now();
+
+        function _run() {
+          // 让value发生变化
+          const now = Date.now();
+
+          if (now - startTime >= duration) {
+            value = to;
+            console.log(value);
+            onProgress && onProgress(value);
+            return;
+          } else {
+            value = from + speed * (now - startTime);
+            onProgress && onProgress(value);
+
+            // 下一次渲染的时候 变划
+            requestAnimationFrame(_run);
+          }
+        }
+        _run();
+      }
+      const label = document.querySelector("label");
+      const btn = document.querySelector(".btn");
+      btn.onclick = function () {
+        animation(1000, 4599, 49, (value) => {
+          label.innerText = `价格：${value.toFixed(2)}`;
+        });
+      };
+    </script>
+    <script></script>
+  </body>
+</html>
