@@ -1,11 +1,18 @@
 {
   "configurations": [
-    
     {
       "type": "chrome",
       "name": "http://localhost:8080",
       "request": "launch",
       "url": "http://localhost:8080"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/hjiandeng/code/script",
+      "program": "/Users/hjiandeng/code/script/build/Debug/outDebug"
     }
   ]
 }
